@@ -9,12 +9,12 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "dotenv": "^8.2.0",
-    "express": "^4.12.4",
+    "express": "^4.19.2",
     "mongoose": "^5.11.15"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/freeCodeCamp/boilerplate-mongomongoose.git"
+    "url": "https://github.com/PSClearn01/boilerplate-mongomongoose.git"
   },
   "keywords": [
     "node",
