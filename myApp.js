@@ -7,70 +7,21 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URI);
 
-const Schema = mongoose.Schema;
-
-const personSchema = new Schema({
-  name: {
-    type: String,
-    required: true
-  },
+/** 2) Create a 'Person' Model */
+var personSchema = new mongoose.Schema({
+  name: String,
   age: Number,
   favoriteFoods: [String]
 });
 
-const Person = mongoose.model("Person", personSchema);
+/** 3) Create and Save a Person */
+var Person = mongoose.model('Person', personSchema);
 
-const createAndSavePerson = function(done) {
-  const purosur = new Person({name: "Puro Sur", age: 41, favoriteFoods: ["pizza", "carnitas", "birria de chivo"]});
+var createAndSavePerson = function(done) {
+  var janeFonda = new Person({name: "Jane Fonda", age: 84, favoriteFoods: ["eggs", "fish", "fresh fruit"]});
 
-  purosur.save(function(err, data) {
-    if (err) return console.error(err);
-    done(null, data)
-  });
-};
-
-const createManyPeople = (arrayOfPeople, done) => {
-  done(null /*, data*/);
-};
-
-const findPeopleByName = (personName, done) => {
-  done(null /*, data*/);
-};
-
-const findOneByFood = (food, done) => {
-  done(null /*, data*/);
-};
-
-const findPersonById = (personId, done) => {
-  done(null /*, data*/);
-};
-
-const findEditThenSave = (personId, done) => {
-  const foodToAdd = "hamburger";
-
-  done(null /*, data*/);
-};
-
-const findAndUpdate = (personName, done) => {
-  const ageToSet = 20;
-
-  done(null /*, data*/);
-};
-
-const removeById = (personId, done) => {
-  done(null /*, data*/);
-};
-
-const removeManyPeople = (done) => {
-  const nameToRemove = "Mary";
-
-  done(null /*, data*/);
-};
-
-const queryChain = (done) => {
-  const foodToSearch = "burrito";
-
-  done(null /*, data*/);
+  janeFonda.save().then(() =>
+  console.log("Successfully saved the product")).catch((err) => {console.log(err);});
 };
 
 /** **Well Done !!**
@@ -81,12 +32,3 @@ const queryChain = (done) => {
 
 exports.PersonModel = Person;
 exports.createAndSavePerson = createAndSavePerson;
-exports.findPeopleByName = findPeopleByName;
-exports.findOneByFood = findOneByFood;
-exports.findPersonById = findPersonById;
-exports.findEditThenSave = findEditThenSave;
-exports.findAndUpdate = findAndUpdate;
-exports.createManyPeople = createManyPeople;
-exports.removeById = removeById;
-exports.removeManyPeople = removeManyPeople;
-exports.queryChain = queryChain;
