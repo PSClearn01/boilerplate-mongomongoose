@@ -32,8 +32,6 @@ var createAndSavePerson = function(done) {
 
 exports.PersonModel = Person;
 exports.createAndSavePerson = createAndSavePerson;
-<<<<<<< HEAD
-=======
 /* exports.findPeopleByName = findPeopleByName; */
 /* exports.findOneByFood = findOneByFood; */
 /* exports.findPersonById = findPersonById; */
@@ -43,4 +41,3 @@ exports.createAndSavePerson = createAndSavePerson;
 /* exports.removeById = removeById; */
 /* exports.removeManyPeople = removeManyPeople; */
 /* exports.queryChain = queryChain; */
->>>>>>> a97b523 (npm updates)
