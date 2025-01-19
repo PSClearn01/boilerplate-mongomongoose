@@ -20,8 +20,11 @@ var Person = mongoose.model('Person', personSchema);
 var createAndSavePerson = function(done) {
   var janeFonda = new Person({name: "Jane Fonda", age: 84, favoriteFoods: ["eggs", "fish", "fresh fruit"]});
 
-  janeFonda.save().then(() =>
-  console.log("Successfully saved the product")).catch((err) => {console.log(err);});
+  janeFonda.save(function(err, data) {
+    if (err) return console.error(err);
+    console.log("Successfully saved the product");
+    done(null, data);
+  });
 };
 
 /** **Well Done !!**
